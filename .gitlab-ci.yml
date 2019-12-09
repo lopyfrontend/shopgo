@@ -30,6 +30,6 @@ async-github:
   script:
     - git config user.name "${GIT_CONFIG_USERNAME}"
     - git config user.email "${GIT_CONFIG_EMAIL}"
-    - git push "https://${GITHUB_TOKEN}@${GIT_URL_REF}" master:master
+    - git push "https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@${GIT_URL_REF}" master:master
   only:
     - master
