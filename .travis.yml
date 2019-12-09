@@ -1,0 +1,21 @@
+language:      node_js
+node_js:
+  - "10"
+skip_cleanup: true
+before_install:
+  - lsb_release -a
+install:
+  - npm i -g yarn
+  - yarn install
+script:
+  #  - npm test
+  - yarn run build
+after_script:
+  - ls
+
+deploy:
+  provider: npm
+  email: $DEPLOY_EMAIL
+  api_key: $NPM_API_KEY
+  on:
+    tags: true
