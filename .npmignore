@@ -1,0 +1,9 @@
+dest/images
+dest/*.html
+dest/**/*.html
+src/images
+src/templates
+node_modules
+temp
+tmp
+.idea

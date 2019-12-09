@@ -1,7 +1,7 @@
 {
-  "name": "uikit-ecommerce-template",
+  "name": "shopygo",
   "version": "1.0.0",
-  "description": "E-commerce template built with UIkIt",
+  "description": "uikit-ecommerce-template-lopygo,E-commerce template built with UIkIt",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
