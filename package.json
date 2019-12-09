@@ -1,6 +1,6 @@
 {
   "name": "shopygo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "基于chekromul/uikit-ecommerce-template做了修改，自用",
   "main": "index.js",
   "scripts": {
