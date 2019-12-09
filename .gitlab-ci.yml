@@ -1,0 +1,35 @@
+variables:
+  GIT_URL_REF: "github.com/lopyfrontend/shopgo.git"
+
+
+before_script:
+  - ls -al
+
+stages:
+  - prepare
+
+build-js:
+  stage: prepare
+  image:
+    name: lopydev/node10
+    entrypoint: [""]
+  script:
+    - yarn install
+    - yarn run build
+    - echo "//registry.npmjs.org/:_authToken=$NPM_API_KEY" > ~/.npmrc
+    - npm publish
+    - rm -rf ~/.npmrc
+  only:
+    - tags
+
+async-github:
+  stage: prepare
+  image:
+    name: lopydev/node10
+    entrypoint: [""]
+  script:
+    - git config user.name "${GIT_CONFIG_USERNAME}"
+    - git config user.email "${GIT_CONFIG_EMAIL}"
+    - git push "https://${GITHUB_TOKEN}@${GIT_URL_REF}" master:master
+  only:
+    - master

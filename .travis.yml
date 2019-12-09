@@ -10,8 +10,12 @@ install:
 script:
   #  - npm test
   - yarn run build
+  - echo "//registry.npmjs.org/:_authToken=$NPM_API_KEY" > ~/.npmrc
+  - npm publish
+  - rm -rf ~/.npmrc
 after_script:
   - ls
+
 
 deploy:
   provider: npm
@@ -20,3 +24,5 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+
+
